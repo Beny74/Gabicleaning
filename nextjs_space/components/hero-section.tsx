@@ -1,6 +1,8 @@
 
 'use client'
 
+import Image from 'next/image'
+
 export default function HeroSection() {
   const scrollToQuote = () => {
     const quoteElement = document.getElementById('quote')
@@ -13,61 +15,110 @@ export default function HeroSection() {
   }
 
   return (
-    <section className="hero" aria-labelledby="hero-title">
-      <div className="hero-inner" role="region" aria-label="Hero">
-        <div className="hero-left">
-          <h2 className="hero-title" id="hero-title">Professional Cleaning Services You Can Trust.</h2>
-          <p className="hero-sub">Serving the entire Bay Area with care, reliability, and sparkle. Licensed & insured, eco-friendly products, and a 100% satisfaction guarantee.</p>
+    <>
+      {/* Hero Banner */}
+      <section className="hero" aria-labelledby="hero-title">
+        <div className="hero-inner" role="region" aria-label="Hero">
+          <div className="hero-left">
+            <h2 className="hero-title" id="hero-title">
+              Reliable Home Cleaning in the <span style={{color:'var(--primary)'}}>Bay Area</span>
+            </h2>
+            <p className="hero-sub">
+              Experience the convenience of professional cleaning services. Designed to meet your specific needs, save you time, and eliminate stress.
+            </p>
 
-          <div className="hero-actions" role="group" aria-label="Hero actions">
-            <button className="btn-cta" onClick={scrollToQuote}>Get a Free Quote</button>
-            <button className="secondary" onClick={scrollToServices}>Our Services</button>
+            <div className="hero-actions" role="group" aria-label="Hero actions">
+              <button className="btn-cta" onClick={scrollToQuote}>Book a Cleaning</button>
+              <button className="secondary" onClick={scrollToServices}>View Services</button>
+            </div>
+
+            {/* Feature badges */}
+            <div style={{marginTop:'24px',display:'flex',gap:'12px',flexWrap:'wrap'}}>
+              <div style={{padding:'10px 14px',background:'var(--gray-50)',borderRadius:'10px',fontSize:'14px',border:'1px solid var(--gray-200)',display:'flex',alignItems:'center',gap:'8px'}}>
+                <span style={{fontSize:'18px'}}>✓</span>
+                <div>
+                  <strong style={{color:'var(--text-dark)'}}>Eco-Friendly</strong>
+                  <div style={{fontSize:'12px',color:'var(--text-muted)'}}>Safe for kids & pets</div>
+                </div>
+              </div>
+              <div style={{padding:'10px 14px',background:'var(--gray-50)',borderRadius:'10px',fontSize:'14px',border:'1px solid var(--gray-200)',display:'flex',alignItems:'center',gap:'8px'}}>
+                <span style={{fontSize:'18px'}}>✓</span>
+                <div>
+                  <strong style={{color:'var(--text-dark)'}}>Licensed & Insured</strong>
+                  <div style={{fontSize:'12px',color:'var(--text-muted)'}}>Trusted professionals</div>
+                </div>
+              </div>
+              <div style={{padding:'10px 14px',background:'var(--gray-50)',borderRadius:'10px',fontSize:'14px',border:'1px solid var(--gray-200)',display:'flex',alignItems:'center',gap:'8px'}}>
+                <span style={{fontSize:'18px'}}>✓</span>
+                <div>
+                  <strong style={{color:'var(--text-dark)'}}>Flexible Scheduling</strong>
+                  <div style={{fontSize:'12px',color:'var(--text-muted)'}}>7 days a week</div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div style={{marginTop:'14px',display:'flex',gap:'10px',flexWrap:'wrap'}}>
-            <div style={{padding:'8px 10px',background:'#fff',borderRadius:'8px',fontSize:'13px',border:'1px solid rgba(160,132,202,0.06)'}}>
-              <strong>Eco-Friendly</strong>
-              <div style={{fontSize:'12px',color:'#666'}}>Safe for kids & pets</div>
-            </div>
-            <div style={{padding:'8px 10px',background:'#fff',borderRadius:'8px',fontSize:'13px',border:'1px solid rgba(160,132,202,0.06)'}}>
-              <strong>Licensed & Insured</strong>
-              <div style={{fontSize:'12px',color:'#666'}}>Trusted local teams</div>
-            </div>
-            <div style={{padding:'8px 10px',background:'#fff',borderRadius:'8px',fontSize:'13px',border:'1px solid rgba(160,132,202,0.06)'}}>
-              <strong>Flexible Hours</strong>
-              <div style={{fontSize:'12px',color:'#666'}}>Weekdays & weekends</div>
+          <div className="hero-visual" style={{width:'100%',maxWidth:'500px',display:'flex',alignItems:'center',justifyContent:'center'}}>
+            <div style={{width:'100%',aspectRatio:'16/10',position:'relative',borderRadius:'16px',overflow:'hidden',boxShadow:'0 8px 32px rgba(0,0,0,0.12)'}}>
+              <Image 
+                src="https://cdn.abacus.ai/images/69430ba2-c067-44ee-916a-c22e4d30b0a4.png"
+                alt="Spotless modern kitchen showcasing professional cleaning results"
+                fill
+                style={{objectFit:'cover'}}
+                priority
+              />
             </div>
           </div>
         </div>
+      </section>
 
-        <div className="hero-visual" aria-hidden="true">
-          <div className="circle">
-            <svg viewBox="0 0 120 120" width="120" height="120" aria-hidden="true">
-              <defs>
-                <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
-                  <stop offset="0" stopColor="#cbb0ea"/>
-                  <stop offset="1" stopColor="#8f6ecf"/>
-                </linearGradient>
-              </defs>
-              <g transform="translate(12,6)" fill="url(#g1)" opacity="0.98">
-                <rect x="46" y="10" width="28" height="6" rx="2" transform="rotate(-10 60 13)"/>
-                <rect x="56" y="16" width="6" height="48" rx="3" transform="rotate(2 59 40)"/>
-                <rect x="10" y="48" width="24" height="48" rx="4" transform="rotate(6 22 72)"/>
-                <ellipse cx="18" cy="102" rx="6" ry="3" opacity="0.9"/>
-              </g>
-            </svg>
+      {/* Why Choose Section */}
+      <section style={{marginTop:'48px',background:'var(--white)',padding:'40px',borderRadius:'16px',border:'1px solid var(--gray-200)',boxShadow:'0 2px 12px rgba(0,0,0,0.04)'}}>
+        <div style={{display:'grid',gridTemplateColumns:'1fr',gap:'32px',alignItems:'center'}} className="why-choose-grid">
+          <div style={{aspectRatio:'3/2',position:'relative',borderRadius:'12px',overflow:'hidden'}}>
+            <Image 
+              src="https://cdn.abacus.ai/images/b0774aff-f8cf-4582-b418-bc75ed7d7b88.png"
+              alt="Professional cleaner with supplies ready to provide exceptional service"
+              fill
+              style={{objectFit:'cover'}}
+            />
+          </div>
+          <div>
+            <h3 style={{fontFamily:'Poppins',fontSize:'28px',color:'var(--text-dark)',margin:'0 0 16px',fontWeight:'600'}}>
+              Why Choose Gabi Cleaning?
+            </h3>
+            <p style={{color:'var(--text-muted)',fontSize:'16px',lineHeight:'1.6',marginBottom:'20px'}}>
+              For over a decade, we've provided exceptional housekeeping services to families across the Bay Area. Our agency is known for its high industry standards, personalized matching process, and first-rate professionals.
+            </p>
+            <div style={{display:'flex',flexDirection:'column',gap:'12px'}}>
+              {[
+                {icon:'✓', title:'Background Checked', desc:'All cleaners thoroughly vetted'},
+                {icon:'✓', title:'Professional Experience', desc:'Trained and experienced staff'},
+                {icon:'✓', title:'Quality Supplies', desc:'We bring eco-friendly products'},
+                {icon:'✓', title:'Satisfaction Guaranteed', desc:'100% happiness or we make it right'}
+              ].map((item, i) => (
+                <div key={i} style={{display:'flex',alignItems:'start',gap:'12px'}}>
+                  <div style={{width:'24px',height:'24px',borderRadius:'50%',background:'var(--primary)',color:'white',display:'grid',placeItems:'center',fontSize:'14px',fontWeight:'bold',flexShrink:0}}>
+                    {item.icon}
+                  </div>
+                  <div>
+                    <div style={{fontWeight:'600',color:'var(--text-dark)',fontSize:'15px'}}>{item.title}</div>
+                    <div style={{fontSize:'14px',color:'var(--text-muted)'}}>{item.desc}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
+      </section>
 
-        <svg className="sparkles" viewBox="0 0 200 200" width="200" height="200" aria-hidden="true">
-          <g fill="#A084CA">
-            <circle cx="12" cy="10" r="1.6"/>
-            <circle cx="36" cy="26" r="1.1"/>
-            <circle cx="60" cy="40" r="1.6"/>
-            <circle cx="92" cy="18" r="2"/>
-          </g>
-        </svg>
-      </div>
-    </section>
+      <style jsx>{`
+        @media(min-width: 768px) {
+          .why-choose-grid {
+            grid-template-columns: 1fr 1fr !important;
+          }
+        }
+      `}</style>
+    </>
   )
 }

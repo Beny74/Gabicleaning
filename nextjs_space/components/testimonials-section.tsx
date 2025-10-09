@@ -16,8 +16,8 @@ export default function TestimonialsSection() {
   ]
 
   return (
-    <div style={{marginTop:'8px'}}>
-      <h3 style={{fontFamily:'Poppins',margin:'0 0 8px'}}>What clients say</h3>
+    <div style={{marginTop:'32px'}}>
+      <h3 style={{fontFamily:'Poppins',margin:'0 0 16px',fontSize:'28px',color:'var(--text-dark)',fontWeight:'600'}}>What Our Clients Say</h3>
       <div className="testimonials" role="list">
         {testimonials?.map((testimonial, index) => (
           <div key={index} className="testimonial" role="listitem">

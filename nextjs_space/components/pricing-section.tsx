@@ -20,8 +20,8 @@ export default function PricingSection() {
   ]
 
   return (
-    <div style={{display:'flex',flexDirection:'column',gap:'10px'}}>
-      <h3 style={{fontFamily:'Poppins',margin:'0'}}>Suggested Pricing</h3>
+    <div style={{display:'flex',flexDirection:'column',gap:'10px',marginTop:'32px'}}>
+      <h3 style={{fontFamily:'Poppins',margin:'0 0 16px',fontSize:'28px',color:'var(--text-dark)',fontWeight:'600'}}>Transparent Pricing</h3>
       <div className="pricing" aria-hidden="false">
         {pricingOptions?.map((option, index) => (
           <div key={index} className="price-card">
