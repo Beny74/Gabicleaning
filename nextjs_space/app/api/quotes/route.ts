@@ -1,6 +1,7 @@
 
 import { NextRequest, NextResponse } from 'next/server'
 import { PrismaClient } from '@prisma/client'
+import { sendQuoteRequestEmail } from '@/lib/email'
 
 const prisma = new PrismaClient()
 
@@ -31,6 +32,22 @@ export async function POST(request: NextRequest) {
         notes: notes?.trim() || null,
       },
     })
+
+    // Send email notification
+    try {
+      await sendQuoteRequestEmail({
+        name: name?.trim() ?? '',
+        phone: phone?.trim() ?? '',
+        address: address?.trim() || null,
+        service: service ?? 'Regular',
+        size: size || null,
+        date: date || null,
+        notes: notes?.trim() || null,
+      })
+    } catch (emailError) {
+      console.error('Error sending email notification:', emailError)
+      // Continue even if email fails - quote is still saved in database
+    }
 
     return NextResponse.json(
       { 
