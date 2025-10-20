@@ -59,12 +59,12 @@ export default function HeroSection() {
           </div>
 
           <div className="hero-visual" style={{width:'100%',maxWidth:'500px',display:'flex',alignItems:'center',justifyContent:'center'}}>
-            <div style={{width:'100%',aspectRatio:'16/10',position:'relative',borderRadius:'16px',overflow:'hidden',boxShadow:'0 8px 32px rgba(0,0,0,0.12)'}}>
+            <div style={{width:'100%',aspectRatio:'1/1',position:'relative',borderRadius:'16px',overflow:'hidden',boxShadow:'0 8px 32px rgba(0,0,0,0.12)',background:'#f5f5f5'}}>
               <Image 
                 src="/cozinha.png"
                 alt="Cozinha impecavelmente limpa demonstrando nossos serviços profissionais de limpeza Gabi Cleaning"
                 fill
-                style={{objectFit:'cover'}}
+                style={{objectFit:'contain'}}
                 priority
               />
             </div>
@@ -75,12 +75,12 @@ export default function HeroSection() {
       {/* Why Choose Section */}
       <section style={{marginTop:'32px',background:'var(--white)',padding:'20px',borderRadius:'12px',border:'1px solid var(--gray-200)',boxShadow:'0 2px 12px rgba(0,0,0,0.04)'}} className="why-choose-section">
         <div style={{display:'grid',gridTemplateColumns:'1fr',gap:'20px',alignItems:'center'}} className="why-choose-grid">
-          <div style={{aspectRatio:'3/2',position:'relative',borderRadius:'10px',overflow:'hidden'}}>
+          <div style={{aspectRatio:'1/1',position:'relative',borderRadius:'10px',overflow:'hidden',background:'#f5f5f5'}}>
             <Image 
               src="/pessoa-limpeza.png"
               alt="Profissional da Gabi Cleaning realizando limpeza residencial com equipamentos modernos"
               fill
-              style={{objectFit:'cover'}}
+              style={{objectFit:'contain'}}
             />
           </div>
           <div>
