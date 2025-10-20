@@ -84,7 +84,21 @@ export default function QuoteForm() {
 
   return (
     <div id="quote" className="quote" aria-labelledby="quote-heading">
-      <h3 id="quote-heading" style={{margin:'0 0 20px',fontFamily:'Poppins',fontSize:'28px',color:'var(--text-dark)',fontWeight:'600'}}>Request a Free Quote</h3>
+      <h3 id="quote-heading" className="quote-heading" style={{margin:'0 0 16px',fontFamily:'Poppins',fontSize:'20px',color:'var(--text-dark)',fontWeight:'600'}}>Request a Free Quote</h3>
+      <style jsx>{`
+        @media(min-width: 640px) {
+          .quote-heading {
+            font-size: 24px !important;
+            margin: 0 0 18px !important;
+          }
+        }
+        @media(min-width: 768px) {
+          .quote-heading {
+            font-size: 28px !important;
+            margin: 0 0 20px !important;
+          }
+        }
+      `}</style>
       <form onSubmit={handleSubmit} noValidate>
         <div className="row">
           <div className="two">
