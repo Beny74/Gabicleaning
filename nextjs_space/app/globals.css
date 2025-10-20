@@ -60,18 +60,18 @@ header{
   align-items:center;
 }
 .logo-mark{
-  width:48px;height:48px;border-radius:50%;
+  width:56px;height:56px;border-radius:50%;
   background: transparent;
   box-shadow: 0 4px 16px rgba(91,58,130,0.15);
   display:flex;align-items:center;justify-content:center;
   position:relative;
   overflow:hidden;
 }
-.logo-mark svg{width:34px;height:34px;opacity:0.98}
+.logo-mark svg{width:40px;height:40px;opacity:0.98}
 
 .brand h1{
   margin:0;font-family:"Poppins",sans-serif;
-  font-size:16px;color:var(--text-dark);
+  font-size:16px;color:var(--primary);
   letter-spacing:0.3px;
   font-weight:600;
 }
@@ -379,6 +379,8 @@ footer{
   .hero{grid-template-columns: 1fr;}
   .hero-inner{padding:40px;}
   header{padding:24px 0}
+  .logo-mark{width:64px;height:64px;}
+  .brand h1{font-size:20px;}
   .hero-title{font-size:36px}
   .hero-sub{font-size:18px}
   .services{grid-template-columns:repeat(2,1fr);gap:16px}

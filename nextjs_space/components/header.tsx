@@ -23,15 +23,15 @@ export default function Header() {
             <Image 
               src="/logo-circular.jpg" 
               alt="Gabi Cleaning Logo"
-              width={64}
-              height={64}
+              width={56}
+              height={56}
               style={{ borderRadius: '50%', objectFit: 'cover' }}
               priority
             />
           </div>
           <div>
             <h1>Gabi Cleaning</h1>
-            <p>By Gabi Di Francescantonio — Bay Area</p>
+            <p>By Gabi Di Francescantonio — serving San Francisco - Bay Area</p>
           </div>
         </Link>
       </div>
