@@ -53,8 +53,7 @@ export default function BookingForm() {
     textReminders: true,
     address: '',
     aptNo: '',
-    specialNotes: '',
-    couponCode: ''
+    specialNotes: ''
   })
 
   const handleExtrasToggle = (extraId: string) => {
@@ -78,7 +77,7 @@ export default function BookingForm() {
       case 'move-clean':
         base = 350
         break
-      case 'office-airbnb':
+      case 'office':
         base = 200
         break
     }
@@ -132,13 +131,13 @@ export default function BookingForm() {
 
         <Tabs value={serviceType} onValueChange={setServiceType} className="mb-8">
           <TabsList className="bg-white inline-flex border border-gray-200">
-            <TabsTrigger 
+            <TabsTrigger data-navlink="false" role="tab" 
               value="home" 
               className="data-[state=active]:bg-[#5B3A82] data-[state=active]:text-white px-8 py-3"
             >
               Home Cleaning
             </TabsTrigger>
-            <TabsTrigger 
+            <TabsTrigger data-navlink="false" role="tab" 
               value="office" 
               className="data-[state=active]:bg-[#5B3A82] data-[state=active]:text-white px-8 py-3"
             >
@@ -185,7 +184,7 @@ export default function BookingForm() {
                       <SelectItem value="deep-clean">Deep Clean</SelectItem>
                       <SelectItem value="general-clean">General Clean</SelectItem>
                       <SelectItem value="move-clean">Move In/Out</SelectItem>
-                      <SelectItem value="office-airbnb">Office & Airbnb</SelectItem>
+                      <SelectItem value="office">Office</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -490,28 +489,6 @@ export default function BookingForm() {
                 </div>
               </div>
 
-              {/* Coupon */}
-              <div className="card" style={{ padding: '24px' }}>
-                <Tabs defaultValue="coupon">
-                  <TabsList>
-                    <TabsTrigger value="coupon">Coupon Code</TabsTrigger>
-                    <TabsTrigger value="gift">Gift Cards</TabsTrigger>
-                  </TabsList>
-                </Tabs>
-                <div style={{ marginTop: '16px' }}>
-                  <Label htmlFor="couponCode">Enter Coupon Code</Label>
-                  <div style={{ display: 'flex', gap: '8px' }}>
-                    <Input
-                      id="couponCode"
-                      placeholder="Enter Coupon Code"
-                      value={formData.couponCode}
-                      onChange={(e) => setFormData(prev => ({ ...prev, couponCode: e.target.value }))}
-                    />
-                    <Button type="button" className="bg-[#00bcd4] hover:bg-[#00acc1]">Apply</Button>
-                  </div>
-                </div>
-              </div>
-
               {/* Payment Info */}
               <div className="card" style={{ padding: '24px' }}>
                 <h3 style={{ fontSize: '1.4rem', marginBottom: '16px', color: '#333' }}>Payment Information</h3>
@@ -610,7 +587,7 @@ export default function BookingForm() {
                       {formData.service === 'deep-clean' && 'Deep Clean'}
                       {formData.service === 'general-clean' && 'General Clean'}
                       {formData.service === 'move-clean' && 'Move In/Out'}
-                      {formData.service === 'office-airbnb' && 'Office & Airbnb'}
+                      {formData.service === 'office' && 'Office'}
                     </span>
                   </div>
                   <div style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -695,7 +672,7 @@ export default function BookingForm() {
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="office-airbnb">Office & Airbnb</SelectItem>
+                      <SelectItem value="office">Office</SelectItem>
                       <SelectItem value="deep-clean">Deep Clean</SelectItem>
                       <SelectItem value="general-clean">General Clean</SelectItem>
                     </SelectContent>
@@ -930,7 +907,7 @@ export default function BookingForm() {
                       {formData.service === 'deep-clean' && 'Deep Clean'}
                       {formData.service === 'general-clean' && 'General Clean'}
                       {formData.service === 'move-clean' && 'Move In/Out'}
-                      {formData.service === 'office-airbnb' && 'Office & Airbnb'}
+                      {formData.service === 'office' && 'Office'}
                     </span>
                   </div>
                   <div style={{ display: 'flex', justifyContent: 'space-between' }}>

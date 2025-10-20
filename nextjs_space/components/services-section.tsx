@@ -20,8 +20,8 @@ export default function ServicesSection() {
     },
     {
       icon: "🏢",
-      title: "Office & Airbnb Turnover",
-      description: "Flexible scheduling for short-term rentals and office spaces."
+      title: "Office Turnover",
+      description: "Flexible scheduling for office spaces."
     }
   ]
 

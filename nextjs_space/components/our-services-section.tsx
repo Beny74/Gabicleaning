@@ -166,7 +166,7 @@ export default function OurServicesSection() {
       ]
     },
     'office-airbnb': {
-      title: 'Office & Airbnb Turnover',
+      title: 'Office Turnover',
       description: 'Quick and efficient turnover cleaning for short-term rentals and office spaces. Flexible scheduling to match your needs.',
       areas: [
         {
@@ -209,29 +209,29 @@ export default function OurServicesSection() {
 
       <Tabs value={activeService} onValueChange={setActiveService} className="w-full">
         <TabsList className="grid w-full grid-cols-2 lg:grid-cols-4 gap-2 mb-8 bg-transparent h-auto">
-          <TabsTrigger 
+          <TabsTrigger data-navlink="false" role="tab" 
             value="deep-clean"
             className="data-[state=active]:bg-[#5B3A82] data-[state=active]:text-white data-[state=inactive]:bg-gray-200 px-6 py-3 text-base font-medium"
           >
             Deep Clean
           </TabsTrigger>
-          <TabsTrigger 
+          <TabsTrigger data-navlink="false" role="tab" 
             value="general-clean"
             className="data-[state=active]:bg-[#5B3A82] data-[state=active]:text-white data-[state=inactive]:bg-gray-200 px-6 py-3 text-base font-medium"
           >
             General Clean
           </TabsTrigger>
-          <TabsTrigger 
+          <TabsTrigger data-navlink="false" role="tab" 
             value="move-clean"
             className="data-[state=active]:bg-[#5B3A82] data-[state=active]:text-white data-[state=inactive]:bg-gray-200 px-6 py-3 text-base font-medium"
           >
             Move In/Out
           </TabsTrigger>
-          <TabsTrigger 
+          <TabsTrigger data-navlink="false" role="tab" 
             value="office-airbnb"
             className="data-[state=active]:bg-[#5B3A82] data-[state=active]:text-white data-[state=inactive]:bg-gray-200 px-6 py-3 text-base font-medium"
           >
-            Office & Airbnb
+            Office
           </TabsTrigger>
         </TabsList>
 
