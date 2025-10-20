@@ -61,8 +61,8 @@ export default function HeroSection() {
           <div className="hero-visual" style={{width:'100%',maxWidth:'500px',display:'flex',alignItems:'center',justifyContent:'center'}}>
             <div style={{width:'100%',aspectRatio:'16/10',position:'relative',borderRadius:'16px',overflow:'hidden',boxShadow:'0 8px 32px rgba(0,0,0,0.12)'}}>
               <Image 
-                src="https://cdn.abacus.ai/images/69430ba2-c067-44ee-916a-c22e4d30b0a4.png"
-                alt="Spotless modern kitchen showcasing professional cleaning results"
+                src="/cozinha.png"
+                alt="Cozinha impecavelmente limpa demonstrando nossos serviços profissionais de limpeza Gabi Cleaning"
                 fill
                 style={{objectFit:'cover'}}
                 priority
@@ -77,8 +77,8 @@ export default function HeroSection() {
         <div style={{display:'grid',gridTemplateColumns:'1fr',gap:'20px',alignItems:'center'}} className="why-choose-grid">
           <div style={{aspectRatio:'3/2',position:'relative',borderRadius:'10px',overflow:'hidden'}}>
             <Image 
-              src="https://cdn.abacus.ai/images/b0774aff-f8cf-4582-b418-bc75ed7d7b88.png"
-              alt="Professional cleaner with supplies ready to provide exceptional service"
+              src="/pessoa-limpeza.png"
+              alt="Profissional da Gabi Cleaning realizando limpeza residencial com equipamentos modernos"
               fill
               style={{objectFit:'cover'}}
             />
