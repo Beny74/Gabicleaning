@@ -109,10 +109,10 @@ header{
 }
 .brand p{
   margin:0;
-  font-size:10px;
+  font-size:9px;
   color:var(--text-muted);
   line-height:1.3;
-  display:none;
+  display:block;
 }
 
 nav{
