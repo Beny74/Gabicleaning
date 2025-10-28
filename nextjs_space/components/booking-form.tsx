@@ -41,9 +41,7 @@ export default function BookingForm() {
     sqft: '0-750',
     partialCleaning: false,
     extras: [] as string[],
-    hearAbout: '',
     date: undefined as Date | undefined,
-    tip: '0',
     firstName: '',
     lastName: '',
     email: '',
@@ -85,9 +83,7 @@ export default function BookingForm() {
     const extrasCount = formData.extras.length
     const extrasTotal = extrasCount * 25
 
-    const tipAmount = (base + extrasTotal) * (parseInt(formData.tip) / 100)
-
-    return (base + extrasTotal + tipAmount).toFixed(2)
+    return (base + extrasTotal).toFixed(2)
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -285,28 +281,9 @@ export default function BookingForm() {
                 </div>
               </div>
 
-              {/* Feedback */}
-              <div className="card" style={{ padding: '24px' }}>
-                <h3 style={{ fontSize: '1.4rem', marginBottom: '16px', color: '#333' }}>Feedback</h3>
-                <div>
-                  <Label htmlFor="hearAbout">How did you hear about us?</Label>
-                  <Select value={formData.hearAbout} onValueChange={(val) => setFormData(prev => ({ ...prev, hearAbout: val }))}>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select Option" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="google">Google Search</SelectItem>
-                      <SelectItem value="social">Social Media</SelectItem>
-                      <SelectItem value="friend">Friend/Family</SelectItem>
-                      <SelectItem value="other">Other</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-              </div>
-
               {/* Date Selection */}
               <div className="card" style={{ padding: '24px' }}>
-                <h3 style={{ fontSize: '1.4rem', marginBottom: '16px', color: '#333' }}>Choose Service Provider</h3>
+                <h3 style={{ fontSize: '1.4rem', marginBottom: '16px', color: '#333' }}>Select Date</h3>
                 <div>
                   <Label>Select Date</Label>
                   <Popover>
@@ -326,37 +303,6 @@ export default function BookingForm() {
                       />
                     </PopoverContent>
                   </Popover>
-                </div>
-              </div>
-
-              {/* Tips */}
-              <div className="card" style={{ padding: '24px' }}>
-                <h3 style={{ fontSize: '1.4rem', marginBottom: '8px', color: '#333' }}>Tips & Parking (Optional)</h3>
-                <p style={{ fontSize: '0.9rem', color: '#666', marginBottom: '16px', lineHeight: '1.6' }}>
-                  Housekeeping is a part of the service industry. Tips motivate our cleaning experts with an eagerness to provide the best service to our customers. Parking reimbursement is highly recommended if you live in areas where parking is hard to find, a parking tip is often helpful and 100% of it goes to the provider to grab the closest parking near you including expensive garage parking.
-                </p>
-                <div>
-                  <Label>Tips</Label>
-                  <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-                    {['0', '10', '15', '20'].map(tip => (
-                      <Button
-                        key={tip}
-                        type="button"
-                        variant={formData.tip === tip ? 'default' : 'outline'}
-                        onClick={() => setFormData(prev => ({ ...prev, tip }))}
-                        className={formData.tip === tip ? 'bg-[#5B3A82]' : ''}
-                      >
-                        {tip}%
-                      </Button>
-                    ))}
-                    <Button
-                      type="button"
-                      variant={!['0', '10', '15', '20'].includes(formData.tip) ? 'default' : 'outline'}
-                      className={!['0', '10', '15', '20'].includes(formData.tip) ? 'bg-[#5B3A82]' : ''}
-                    >
-                      Other
-                    </Button>
-                  </div>
                 </div>
               </div>
 
@@ -489,22 +435,6 @@ export default function BookingForm() {
                 </div>
               </div>
 
-              {/* Payment Info */}
-              <div className="card" style={{ padding: '24px' }}>
-                <h3 style={{ fontSize: '1.4rem', marginBottom: '16px', color: '#333' }}>Payment Information</h3>
-                <p style={{ fontSize: '0.9rem', color: '#666', marginBottom: '16px' }}>
-                  Your card is charged <strong>AFTER</strong> the appointment is completed.
-                </p>
-                <div>
-                  <Label>Payment Method</Label>
-                  <div style={{ padding: '16px', border: '1px solid #ddd', borderRadius: '8px', marginTop: '8px' }}>
-                    <p style={{ fontSize: '0.9rem', color: '#666' }}>
-                      💳 Payment will be processed securely after your cleaning is complete.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
               {/* Terms and Submit */}
               <div className="card" style={{ padding: '24px' }}>
                 <p style={{ fontSize: '0.85rem', color: '#666', marginBottom: '16px', lineHeight: '1.6' }}>
@@ -610,12 +540,6 @@ export default function BookingForm() {
                     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                       <span style={{ color: '#666' }}>Extras</span>
                       <span style={{ fontWeight: '500' }}>{formData.extras.length} selected</span>
-                    </div>
-                  )}
-                  {formData.tip !== '0' && (
-                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                      <span style={{ color: '#666' }}>Tip</span>
-                      <span style={{ fontWeight: '500' }}>{formData.tip}%</span>
                     </div>
                   )}
                 </div>
