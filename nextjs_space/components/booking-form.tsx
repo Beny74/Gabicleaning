@@ -143,26 +143,8 @@ export default function BookingForm() {
 
           <TabsContent value="home">
             <form onSubmit={handleSubmit}>
-          <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-8">
-            {/* Main Form Column */}
+          <div className="max-w-4xl mx-auto">
             <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-              {/* Location */}
-              <div className="card" style={{ padding: '24px' }}>
-                <h3 style={{ fontSize: '1.4rem', marginBottom: '16px', color: '#333' }}>
-                  Where Will The Service Be Taking Place?
-                </h3>
-                <div>
-                  <Label htmlFor="zipCode">Enter Zip Code For Pricing</Label>
-                  <Input
-                    id="zipCode"
-                    placeholder="Zip Code"
-                    value={formData.zipCode}
-                    onChange={(e) => setFormData(prev => ({ ...prev, zipCode: e.target.value }))}
-                    required
-                  />
-                </div>
-              </div>
-
               {/* Service Type */}
               <div className="card" style={{ padding: '24px' }}>
                 <h3 style={{ fontSize: '1.4rem', marginBottom: '8px', color: '#333' }}>Service Type</h3>
@@ -499,89 +481,14 @@ export default function BookingForm() {
                 </div>
               </div>
             </div>
-
-            {/* Booking Summary Column */}
-            <div>
-              <div className="card" style={{ padding: '24px', position: 'sticky', top: '20px' }}>
-                <h3 style={{ fontSize: '1.4rem', marginBottom: '16px', color: '#333', borderBottom: '2px solid #ddd', paddingBottom: '12px' }}>
-                  Booking Summary
-                </h3>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '0.95rem' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <span style={{ color: '#666' }}>Industry</span>
-                    <span style={{ fontWeight: '500' }}>{serviceType === 'home' ? 'Home Cleaning' : 'Office Cleaning'}</span>
-                  </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <span style={{ color: '#666' }}>Service</span>
-                    <span style={{ fontWeight: '500' }}>
-                      {formData.service === 'deep-clean' && 'Deep Clean'}
-                      {formData.service === 'general-clean' && 'General Clean'}
-                      {formData.service === 'move-clean' && 'Move In/Out'}
-                      {formData.service === 'office' && 'Office'}
-                    </span>
-                  </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <span style={{ color: '#666' }}>Frequency</span>
-                    <span style={{ fontWeight: '500', textTransform: 'capitalize' }}>{formData.frequency}</span>
-                  </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <span style={{ color: '#666' }}>Bedrooms</span>
-                    <span style={{ fontWeight: '500' }}>{formData.bedrooms}</span>
-                  </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <span style={{ color: '#666' }}>Bathrooms</span>
-                    <span style={{ fontWeight: '500' }}>{formData.bathrooms}</span>
-                  </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <span style={{ color: '#666' }}>Sq Ft</span>
-                    <span style={{ fontWeight: '500' }}>{formData.sqft} Sq F</span>
-                  </div>
-                  {formData.extras.length > 0 && (
-                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                      <span style={{ color: '#666' }}>Extras</span>
-                      <span style={{ fontWeight: '500' }}>{formData.extras.length} selected</span>
-                    </div>
-                  )}
-                </div>
-                <div style={{ 
-                  marginTop: '20px', 
-                  paddingTop: '20px', 
-                  borderTop: '2px solid #ddd',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center'
-                }}>
-                  <span style={{ fontSize: '1.3rem', fontWeight: '600', color: '#5B3A82' }}>TOTAL</span>
-                  <span style={{ fontSize: '1.8rem', fontWeight: '700', color: '#ff6b35' }}>${calculateTotal()}</span>
-                </div>
-              </div>
-            </div>
           </div>
         </form>
           </TabsContent>
 
           <TabsContent value="office">
             <form onSubmit={handleSubmit}>
-          <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-8">
-            {/* Main Form Column */}
+          <div className="max-w-4xl mx-auto">
             <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-              {/* Location */}
-              <div className="card" style={{ padding: '24px' }}>
-                <h3 style={{ fontSize: '1.4rem', marginBottom: '16px', color: '#333' }}>
-                  Where Will The Service Be Taking Place?
-                </h3>
-                <div>
-                  <Label htmlFor="zipCode">Enter Zip Code For Pricing</Label>
-                  <Input
-                    id="zipCode"
-                    placeholder="Zip Code"
-                    value={formData.zipCode}
-                    onChange={(e) => setFormData(prev => ({ ...prev, zipCode: e.target.value }))}
-                    required
-                  />
-                </div>
-              </div>
-
               {/* Service Type */}
               <div className="card" style={{ padding: '24px' }}>
                 <h3 style={{ fontSize: '1.4rem', marginBottom: '8px', color: '#333' }}>Service Type</h3>
@@ -811,45 +718,6 @@ export default function BookingForm() {
                   <Sparkles className="mr-2 h-5 w-5" />
                   Save Booking
                 </Button>
-              </div>
-            </div>
-
-            {/* Booking Summary Column */}
-            <div>
-              <div className="card" style={{ padding: '24px', position: 'sticky', top: '20px' }}>
-                <h3 style={{ fontSize: '1.4rem', marginBottom: '16px', color: '#333', borderBottom: '2px solid #ddd', paddingBottom: '12px' }}>
-                  Booking Summary
-                </h3>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '0.95rem' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <span style={{ color: '#666' }}>Industry</span>
-                    <span style={{ fontWeight: '500' }}>Office Cleaning</span>
-                  </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <span style={{ color: '#666' }}>Service</span>
-                    <span style={{ fontWeight: '500' }}>
-                      {formData.service === 'deep-clean' && 'Deep Clean'}
-                      {formData.service === 'general-clean' && 'General Clean'}
-                      {formData.service === 'move-clean' && 'Move In/Out'}
-                      {formData.service === 'office' && 'Office'}
-                    </span>
-                  </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <span style={{ color: '#666' }}>Frequency</span>
-                    <span style={{ fontWeight: '500', textTransform: 'capitalize' }}>{formData.frequency}</span>
-                  </div>
-                </div>
-                <div style={{ 
-                  marginTop: '20px', 
-                  paddingTop: '20px', 
-                  borderTop: '2px solid #ddd',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center'
-                }}>
-                  <span style={{ fontSize: '1.3rem', fontWeight: '600', color: '#5B3A82' }}>TOTAL</span>
-                  <span style={{ fontSize: '1.8rem', fontWeight: '700', color: '#ff6b35' }}>${calculateTotal()}</span>
-                </div>
               </div>
             </div>
           </div>
