@@ -114,28 +114,28 @@ export default function BookingForm() {
   }
 
   return (
-    <section style={{ padding: '60px 20px', background: '#f5f5f5', minHeight: 'calc(100vh - 200px)' }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-        <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-          <h2 style={{ fontSize: '2.5rem', marginBottom: '12px', color: '#5B3A82' }}>
+    <section className="py-8 sm:py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 min-h-[calc(100vh-200px)]">
+      <div className="max-w-5xl mx-auto">
+        <div className="text-center mb-8 sm:mb-10 md:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-[#5B3A82] px-2">
             Get Pricing & Book In 60 Seconds
           </h2>
-          <p style={{ fontSize: '1.1rem', color: '#666' }}>
+          <p className="text-sm sm:text-base md:text-lg text-gray-600 px-4 sm:px-6">
             Super simple! Pick the industry you want to book for. Select or fill the values in the fields, find the date and time you want to book for and wait for a confirmation!
           </p>
         </div>
 
-        <Tabs value={serviceType} onValueChange={setServiceType} className="mb-8">
-          <TabsList className="bg-white inline-flex border border-gray-200">
+        <Tabs value={serviceType} onValueChange={setServiceType} className="mb-6 sm:mb-8">
+          <TabsList className="bg-white flex w-full sm:inline-flex sm:w-auto border border-gray-200 rounded-lg">
             <TabsTrigger data-navlink="false" role="tab" 
               value="home" 
-              className="data-[state=active]:bg-[#5B3A82] data-[state=active]:text-white px-8 py-3"
+              className="data-[state=active]:bg-[#5B3A82] data-[state=active]:text-white flex-1 sm:flex-initial px-4 sm:px-8 py-3 text-sm sm:text-base rounded-l-lg"
             >
               Home Cleaning
             </TabsTrigger>
             <TabsTrigger data-navlink="false" role="tab" 
               value="office" 
-              className="data-[state=active]:bg-[#5B3A82] data-[state=active]:text-white px-8 py-3"
+              className="data-[state=active]:bg-[#5B3A82] data-[state=active]:text-white flex-1 sm:flex-initial px-4 sm:px-8 py-3 text-sm sm:text-base rounded-r-lg"
             >
               Office Cleaning
             </TabsTrigger>
@@ -289,39 +289,46 @@ export default function BookingForm() {
               </div>
 
               {/* Customer Details */}
-              <div className="card" style={{ padding: '24px' }}>
-                <h3 style={{ fontSize: '1.4rem', marginBottom: '8px', color: '#333' }}>Customer Details</h3>
-                <p style={{ fontSize: '0.9rem', color: '#666', marginBottom: '16px' }}>
-                  If a customer booked with you before everything will be pre-filled for them and if they have multiple addresses they can book with any of them. You can turn this description off or modify it at anytime.
+              <div className="card p-4 sm:p-6 md:p-8">
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="w-8 h-8 rounded-full bg-[#5B3A82] flex items-center justify-center">
+                    <span className="text-white text-lg">👤</span>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-semibold text-gray-800">Customer Details</h3>
+                </div>
+                <p className="text-sm sm:text-base text-gray-600 mb-5">
+                  Please provide your contact information so we can confirm your booking.
                 </p>
                 
-                <div style={{ display: 'grid', gap: '16px' }}>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+                <div className="space-y-4 sm:space-y-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <Label htmlFor="firstName">First Name</Label>
+                      <Label htmlFor="firstName" className="text-sm font-medium text-gray-700">First Name *</Label>
                       <Input
                         id="firstName"
                         placeholder="Ex: James"
                         value={formData.firstName}
                         onChange={(e) => setFormData(prev => ({ ...prev, firstName: e.target.value }))}
                         required
+                        className="mt-1.5 h-11 text-base"
                       />
                     </div>
                     <div>
-                      <Label htmlFor="lastName">Last Name</Label>
+                      <Label htmlFor="lastName" className="text-sm font-medium text-gray-700">Last Name *</Label>
                       <Input
                         id="lastName"
                         placeholder="Ex: Lee"
                         value={formData.lastName}
                         onChange={(e) => setFormData(prev => ({ ...prev, lastName: e.target.value }))}
                         required
+                        className="mt-1.5 h-11 text-base"
                       />
                     </div>
                   </div>
 
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <Label htmlFor="email">Email Address</Label>
+                      <Label htmlFor="email" className="text-sm font-medium text-gray-700">Email Address *</Label>
                       <Input
                         id="email"
                         type="email"
@@ -329,73 +336,80 @@ export default function BookingForm() {
                         value={formData.email}
                         onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
                         required
+                        className="mt-1.5 h-11 text-base"
                       />
                     </div>
                     <div>
-                      <Label htmlFor="secondaryEmail">Secondary Email Address</Label>
+                      <Label htmlFor="secondaryEmail" className="text-sm font-medium text-gray-700">Secondary Email (Optional)</Label>
                       <Input
                         id="secondaryEmail"
                         type="email"
                         placeholder="Ex: example@xyz.com"
                         value={formData.secondaryEmail}
                         onChange={(e) => setFormData(prev => ({ ...prev, secondaryEmail: e.target.value }))}
+                        className="mt-1.5 h-11 text-base"
                       />
                     </div>
                   </div>
 
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <Label htmlFor="phone">Phone No</Label>
+                      <Label htmlFor="phone" className="text-sm font-medium text-gray-700">Phone Number *</Label>
                       <Input
                         id="phone"
                         type="tel"
-                        placeholder="Phone No."
+                        placeholder="(555) 123-4567"
                         value={formData.phone}
                         onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
                         required
+                        className="mt-1.5 h-11 text-base"
                       />
                     </div>
                     <div>
-                      <Label htmlFor="secondaryPhone">Secondary Phone No</Label>
+                      <Label htmlFor="secondaryPhone" className="text-sm font-medium text-gray-700">Secondary Phone (Optional)</Label>
                       <Input
                         id="secondaryPhone"
                         type="tel"
-                        placeholder="Phone No."
+                        placeholder="(555) 123-4567"
                         value={formData.secondaryPhone}
                         onChange={(e) => setFormData(prev => ({ ...prev, secondaryPhone: e.target.value }))}
+                        className="mt-1.5 h-11 text-base"
                       />
                     </div>
                   </div>
 
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-start space-x-3 bg-gray-50 p-3 sm:p-4 rounded-lg border border-gray-200">
                     <Checkbox 
                       id="textReminders"
                       checked={formData.textReminders}
                       onCheckedChange={(checked) => setFormData(prev => ({ ...prev, textReminders: checked as boolean }))}
+                      className="mt-0.5"
                     />
-                    <Label htmlFor="textReminders" className="cursor-pointer">
+                    <Label htmlFor="textReminders" className="cursor-pointer text-sm sm:text-base text-gray-700 leading-relaxed">
                       Send me reminders about my booking via text message
                     </Label>
                   </div>
 
-                  <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '12px' }}>
+                  <div className="grid grid-cols-1 sm:grid-cols-[2fr_1fr] gap-4">
                     <div>
-                      <Label htmlFor="address">Address</Label>
+                      <Label htmlFor="address" className="text-sm font-medium text-gray-700">Address *</Label>
                       <Input
                         id="address"
-                        placeholder="Type Address"
+                        placeholder="123 Main Street"
                         value={formData.address}
                         onChange={(e) => setFormData(prev => ({ ...prev, address: e.target.value }))}
                         required
+                        className="mt-1.5 h-11 text-base"
                       />
                     </div>
                     <div>
-                      <Label htmlFor="aptNo">Apt. No.</Label>
+                      <Label htmlFor="aptNo" className="text-sm font-medium text-gray-700">Apt/Unit (Optional)</Label>
                       <Input
                         id="aptNo"
                         placeholder="#"
                         value={formData.aptNo}
                         onChange={(e) => setFormData(prev => ({ ...prev, aptNo: e.target.value }))}
+                        className="mt-1.5 h-11 text-base"
                       />
                     </div>
                   </div>
@@ -433,51 +447,24 @@ export default function BookingForm() {
               </div>
 
               {/* Trust Badges */}
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '20px', marginTop: '20px' }}>
-                <div style={{ textAlign: 'center' }}>
-                  <div style={{ 
-                    width: '60px', 
-                    height: '60px', 
-                    borderRadius: '50%', 
-                    background: '#1e3a5f', 
-                    display: 'flex', 
-                    alignItems: 'center', 
-                    justifyContent: 'center',
-                    margin: '0 auto 12px'
-                  }}>
-                    <Briefcase className="text-white" size={28} />
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-5 mt-6">
+                <div className="text-center p-4 bg-white rounded-lg shadow-sm">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#1e3a5f] flex items-center justify-center mx-auto mb-3">
+                    <Briefcase className="text-white" size={24} />
                   </div>
-                  <p style={{ fontSize: '0.9rem', color: '#555' }}>Edit & manage your booking online.</p>
+                  <p className="text-sm sm:text-base text-gray-600 leading-snug">Edit & manage your booking online.</p>
                 </div>
-                <div style={{ textAlign: 'center' }}>
-                  <div style={{ 
-                    width: '60px', 
-                    height: '60px', 
-                    borderRadius: '50%', 
-                    background: '#1e3a5f', 
-                    display: 'flex', 
-                    alignItems: 'center', 
-                    justifyContent: 'center',
-                    margin: '0 auto 12px'
-                  }}>
-                    <span style={{ fontSize: '28px' }}>👍</span>
+                <div className="text-center p-4 bg-white rounded-lg shadow-sm">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#1e3a5f] flex items-center justify-center mx-auto mb-3">
+                    <span className="text-2xl sm:text-3xl">👍</span>
                   </div>
-                  <p style={{ fontSize: '0.9rem', color: '#555' }}>Providers are friendly and background checked.</p>
+                  <p className="text-sm sm:text-base text-gray-600 leading-snug">Providers are friendly and background checked.</p>
                 </div>
-                <div style={{ textAlign: 'center' }}>
-                  <div style={{ 
-                    width: '60px', 
-                    height: '60px', 
-                    borderRadius: '50%', 
-                    background: '#1e3a5f', 
-                    display: 'flex', 
-                    alignItems: 'center', 
-                    justifyContent: 'center',
-                    margin: '0 auto 12px'
-                  }}>
-                    <Mail className="text-white" size={28} />
+                <div className="text-center p-4 bg-white rounded-lg shadow-sm">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#1e3a5f] flex items-center justify-center mx-auto mb-3">
+                    <Mail className="text-white" size={24} />
                   </div>
-                  <p style={{ fontSize: '0.9rem', color: '#555' }}>Fast email response & friendly customer service.</p>
+                  <p className="text-sm sm:text-base text-gray-600 leading-snug">Fast email response & friendly customer service.</p>
                 </div>
               </div>
             </div>
@@ -632,36 +619,46 @@ export default function BookingForm() {
               </div>
 
               {/* Customer Details */}
-              <div className="card" style={{ padding: '24px' }}>
-                <h3 style={{ fontSize: '1.4rem', marginBottom: '8px', color: '#333' }}>Customer Details</h3>
+              <div className="card p-4 sm:p-6 md:p-8">
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="w-8 h-8 rounded-full bg-[#5B3A82] flex items-center justify-center">
+                    <span className="text-white text-lg">👤</span>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-semibold text-gray-800">Customer Details</h3>
+                </div>
+                <p className="text-sm sm:text-base text-gray-600 mb-5">
+                  Please provide your contact information so we can confirm your booking.
+                </p>
                 
-                <div style={{ display: 'grid', gap: '16px' }}>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+                <div className="space-y-4 sm:space-y-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <Label htmlFor="firstName">First Name</Label>
+                      <Label htmlFor="firstName" className="text-sm font-medium text-gray-700">First Name *</Label>
                       <Input
                         id="firstName"
                         placeholder="Ex: James"
                         value={formData.firstName}
                         onChange={(e) => setFormData(prev => ({ ...prev, firstName: e.target.value }))}
                         required
+                        className="mt-1.5 h-11 text-base"
                       />
                     </div>
                     <div>
-                      <Label htmlFor="lastName">Last Name</Label>
+                      <Label htmlFor="lastName" className="text-sm font-medium text-gray-700">Last Name *</Label>
                       <Input
                         id="lastName"
                         placeholder="Ex: Lee"
                         value={formData.lastName}
                         onChange={(e) => setFormData(prev => ({ ...prev, lastName: e.target.value }))}
                         required
+                        className="mt-1.5 h-11 text-base"
                       />
                     </div>
                   </div>
 
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <Label htmlFor="email">Email Address</Label>
+                      <Label htmlFor="email" className="text-sm font-medium text-gray-700">Email Address *</Label>
                       <Input
                         id="email"
                         type="email"
@@ -669,39 +666,43 @@ export default function BookingForm() {
                         value={formData.email}
                         onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
                         required
+                        className="mt-1.5 h-11 text-base"
                       />
                     </div>
                     <div>
-                      <Label htmlFor="phone">Phone No</Label>
+                      <Label htmlFor="phone" className="text-sm font-medium text-gray-700">Phone Number *</Label>
                       <Input
                         id="phone"
                         type="tel"
-                        placeholder="Phone No."
+                        placeholder="(555) 123-4567"
                         value={formData.phone}
                         onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
                         required
+                        className="mt-1.5 h-11 text-base"
                       />
                     </div>
                   </div>
 
-                  <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '12px' }}>
+                  <div className="grid grid-cols-1 sm:grid-cols-[2fr_1fr] gap-4">
                     <div>
-                      <Label htmlFor="address">Address</Label>
+                      <Label htmlFor="address" className="text-sm font-medium text-gray-700">Address *</Label>
                       <Input
                         id="address"
-                        placeholder="Type Address"
+                        placeholder="123 Main Street"
                         value={formData.address}
                         onChange={(e) => setFormData(prev => ({ ...prev, address: e.target.value }))}
                         required
+                        className="mt-1.5 h-11 text-base"
                       />
                     </div>
                     <div>
-                      <Label htmlFor="aptNo">Apt/Suite</Label>
+                      <Label htmlFor="aptNo" className="text-sm font-medium text-gray-700">Apt/Suite (Optional)</Label>
                       <Input
                         id="aptNo"
                         placeholder="#"
                         value={formData.aptNo}
                         onChange={(e) => setFormData(prev => ({ ...prev, aptNo: e.target.value }))}
+                        className="mt-1.5 h-11 text-base"
                       />
                     </div>
                   </div>
