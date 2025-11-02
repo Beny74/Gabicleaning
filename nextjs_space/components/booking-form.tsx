@@ -289,46 +289,48 @@ export default function BookingForm() {
               </div>
 
               {/* Customer Details */}
-              <div className="card p-4 sm:p-6 md:p-8">
-                <div className="flex items-center gap-2 mb-3">
-                  <div className="w-8 h-8 rounded-full bg-[#5B3A82] flex items-center justify-center">
-                    <span className="text-white text-lg">👤</span>
+              <div className="card p-5 sm:p-6 md:p-8">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 flex-shrink-0 rounded-full bg-[#5B3A82] flex items-center justify-center">
+                    <span className="text-white text-xl">👤</span>
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-semibold text-gray-800">Customer Details</h3>
+                  <div>
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-800">Customer Details</h3>
+                    <p className="text-xs sm:text-sm text-gray-600 mt-0.5">
+                      Please provide your contact information so we can confirm your booking.
+                    </p>
+                  </div>
                 </div>
-                <p className="text-sm sm:text-base text-gray-600 mb-5">
-                  Please provide your contact information so we can confirm your booking.
-                </p>
                 
-                <div className="space-y-4 sm:space-y-5">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <Label htmlFor="firstName" className="text-sm font-medium text-gray-700">First Name *</Label>
+                <div className="space-y-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                    <div className="w-full">
+                      <Label htmlFor="firstName" className="text-xs sm:text-sm font-medium text-gray-700 block mb-1.5">First Name *</Label>
                       <Input
                         id="firstName"
                         placeholder="Ex: James"
                         value={formData.firstName}
                         onChange={(e) => setFormData(prev => ({ ...prev, firstName: e.target.value }))}
                         required
-                        className="mt-1.5 h-11 text-base"
+                        className="h-10 sm:h-11 text-sm sm:text-base w-full"
                       />
                     </div>
-                    <div>
-                      <Label htmlFor="lastName" className="text-sm font-medium text-gray-700">Last Name *</Label>
+                    <div className="w-full">
+                      <Label htmlFor="lastName" className="text-xs sm:text-sm font-medium text-gray-700 block mb-1.5">Last Name *</Label>
                       <Input
                         id="lastName"
                         placeholder="Ex: Lee"
                         value={formData.lastName}
                         onChange={(e) => setFormData(prev => ({ ...prev, lastName: e.target.value }))}
                         required
-                        className="mt-1.5 h-11 text-base"
+                        className="h-10 sm:h-11 text-sm sm:text-base w-full"
                       />
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <Label htmlFor="email" className="text-sm font-medium text-gray-700">Email Address *</Label>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                    <div className="w-full">
+                      <Label htmlFor="email" className="text-xs sm:text-sm font-medium text-gray-700 block mb-1.5">Email Address *</Label>
                       <Input
                         id="email"
                         type="email"
@@ -336,25 +338,25 @@ export default function BookingForm() {
                         value={formData.email}
                         onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
                         required
-                        className="mt-1.5 h-11 text-base"
+                        className="h-10 sm:h-11 text-sm sm:text-base w-full"
                       />
                     </div>
-                    <div>
-                      <Label htmlFor="secondaryEmail" className="text-sm font-medium text-gray-700">Secondary Email (Optional)</Label>
+                    <div className="w-full">
+                      <Label htmlFor="secondaryEmail" className="text-xs sm:text-sm font-medium text-gray-700 block mb-1.5">Secondary Email (Optional)</Label>
                       <Input
                         id="secondaryEmail"
                         type="email"
                         placeholder="Ex: example@xyz.com"
                         value={formData.secondaryEmail}
                         onChange={(e) => setFormData(prev => ({ ...prev, secondaryEmail: e.target.value }))}
-                        className="mt-1.5 h-11 text-base"
+                        className="h-10 sm:h-11 text-sm sm:text-base w-full"
                       />
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <Label htmlFor="phone" className="text-sm font-medium text-gray-700">Phone Number *</Label>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                    <div className="w-full">
+                      <Label htmlFor="phone" className="text-xs sm:text-sm font-medium text-gray-700 block mb-1.5">Phone Number *</Label>
                       <Input
                         id="phone"
                         type="tel"
@@ -362,54 +364,54 @@ export default function BookingForm() {
                         value={formData.phone}
                         onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
                         required
-                        className="mt-1.5 h-11 text-base"
+                        className="h-10 sm:h-11 text-sm sm:text-base w-full"
                       />
                     </div>
-                    <div>
-                      <Label htmlFor="secondaryPhone" className="text-sm font-medium text-gray-700">Secondary Phone (Optional)</Label>
+                    <div className="w-full">
+                      <Label htmlFor="secondaryPhone" className="text-xs sm:text-sm font-medium text-gray-700 block mb-1.5">Secondary Phone (Optional)</Label>
                       <Input
                         id="secondaryPhone"
                         type="tel"
                         placeholder="(555) 123-4567"
                         value={formData.secondaryPhone}
                         onChange={(e) => setFormData(prev => ({ ...prev, secondaryPhone: e.target.value }))}
-                        className="mt-1.5 h-11 text-base"
+                        className="h-10 sm:h-11 text-sm sm:text-base w-full"
                       />
                     </div>
                   </div>
 
-                  <div className="flex items-start space-x-3 bg-gray-50 p-3 sm:p-4 rounded-lg border border-gray-200">
+                  <div className="flex items-start gap-2.5 bg-gray-50 p-3 sm:p-4 rounded-lg border border-gray-200">
                     <Checkbox 
                       id="textReminders"
                       checked={formData.textReminders}
                       onCheckedChange={(checked) => setFormData(prev => ({ ...prev, textReminders: checked as boolean }))}
-                      className="mt-0.5"
+                      className="mt-0.5 flex-shrink-0"
                     />
-                    <Label htmlFor="textReminders" className="cursor-pointer text-sm sm:text-base text-gray-700 leading-relaxed">
+                    <Label htmlFor="textReminders" className="cursor-pointer text-xs sm:text-sm text-gray-700 leading-relaxed flex-1">
                       Send me reminders about my booking via text message
                     </Label>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-[2fr_1fr] gap-4">
-                    <div>
-                      <Label htmlFor="address" className="text-sm font-medium text-gray-700">Address *</Label>
+                  <div className="grid grid-cols-1 sm:grid-cols-[2fr_1fr] gap-3 sm:gap-4">
+                    <div className="w-full">
+                      <Label htmlFor="address" className="text-xs sm:text-sm font-medium text-gray-700 block mb-1.5">Address *</Label>
                       <Input
                         id="address"
                         placeholder="123 Main Street"
                         value={formData.address}
                         onChange={(e) => setFormData(prev => ({ ...prev, address: e.target.value }))}
                         required
-                        className="mt-1.5 h-11 text-base"
+                        className="h-10 sm:h-11 text-sm sm:text-base w-full"
                       />
                     </div>
-                    <div>
-                      <Label htmlFor="aptNo" className="text-sm font-medium text-gray-700">Apt/Unit (Optional)</Label>
+                    <div className="w-full">
+                      <Label htmlFor="aptNo" className="text-xs sm:text-sm font-medium text-gray-700 block mb-1.5">Apt/Unit (Optional)</Label>
                       <Input
                         id="aptNo"
                         placeholder="#"
                         value={formData.aptNo}
                         onChange={(e) => setFormData(prev => ({ ...prev, aptNo: e.target.value }))}
-                        className="mt-1.5 h-11 text-base"
+                        className="h-10 sm:h-11 text-sm sm:text-base w-full"
                       />
                     </div>
                   </div>
@@ -619,46 +621,48 @@ export default function BookingForm() {
               </div>
 
               {/* Customer Details */}
-              <div className="card p-4 sm:p-6 md:p-8">
-                <div className="flex items-center gap-2 mb-3">
-                  <div className="w-8 h-8 rounded-full bg-[#5B3A82] flex items-center justify-center">
-                    <span className="text-white text-lg">👤</span>
+              <div className="card p-5 sm:p-6 md:p-8">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 flex-shrink-0 rounded-full bg-[#5B3A82] flex items-center justify-center">
+                    <span className="text-white text-xl">👤</span>
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-semibold text-gray-800">Customer Details</h3>
+                  <div>
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-800">Customer Details</h3>
+                    <p className="text-xs sm:text-sm text-gray-600 mt-0.5">
+                      Please provide your contact information so we can confirm your booking.
+                    </p>
+                  </div>
                 </div>
-                <p className="text-sm sm:text-base text-gray-600 mb-5">
-                  Please provide your contact information so we can confirm your booking.
-                </p>
                 
-                <div className="space-y-4 sm:space-y-5">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <Label htmlFor="firstName" className="text-sm font-medium text-gray-700">First Name *</Label>
+                <div className="space-y-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                    <div className="w-full">
+                      <Label htmlFor="firstName" className="text-xs sm:text-sm font-medium text-gray-700 block mb-1.5">First Name *</Label>
                       <Input
                         id="firstName"
                         placeholder="Ex: James"
                         value={formData.firstName}
                         onChange={(e) => setFormData(prev => ({ ...prev, firstName: e.target.value }))}
                         required
-                        className="mt-1.5 h-11 text-base"
+                        className="h-10 sm:h-11 text-sm sm:text-base w-full"
                       />
                     </div>
-                    <div>
-                      <Label htmlFor="lastName" className="text-sm font-medium text-gray-700">Last Name *</Label>
+                    <div className="w-full">
+                      <Label htmlFor="lastName" className="text-xs sm:text-sm font-medium text-gray-700 block mb-1.5">Last Name *</Label>
                       <Input
                         id="lastName"
                         placeholder="Ex: Lee"
                         value={formData.lastName}
                         onChange={(e) => setFormData(prev => ({ ...prev, lastName: e.target.value }))}
                         required
-                        className="mt-1.5 h-11 text-base"
+                        className="h-10 sm:h-11 text-sm sm:text-base w-full"
                       />
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <Label htmlFor="email" className="text-sm font-medium text-gray-700">Email Address *</Label>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                    <div className="w-full">
+                      <Label htmlFor="email" className="text-xs sm:text-sm font-medium text-gray-700 block mb-1.5">Email Address *</Label>
                       <Input
                         id="email"
                         type="email"
@@ -666,11 +670,11 @@ export default function BookingForm() {
                         value={formData.email}
                         onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
                         required
-                        className="mt-1.5 h-11 text-base"
+                        className="h-10 sm:h-11 text-sm sm:text-base w-full"
                       />
                     </div>
-                    <div>
-                      <Label htmlFor="phone" className="text-sm font-medium text-gray-700">Phone Number *</Label>
+                    <div className="w-full">
+                      <Label htmlFor="phone" className="text-xs sm:text-sm font-medium text-gray-700 block mb-1.5">Phone Number *</Label>
                       <Input
                         id="phone"
                         type="tel"
@@ -678,31 +682,31 @@ export default function BookingForm() {
                         value={formData.phone}
                         onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
                         required
-                        className="mt-1.5 h-11 text-base"
+                        className="h-10 sm:h-11 text-sm sm:text-base w-full"
                       />
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-[2fr_1fr] gap-4">
-                    <div>
-                      <Label htmlFor="address" className="text-sm font-medium text-gray-700">Address *</Label>
+                  <div className="grid grid-cols-1 sm:grid-cols-[2fr_1fr] gap-3 sm:gap-4">
+                    <div className="w-full">
+                      <Label htmlFor="address" className="text-xs sm:text-sm font-medium text-gray-700 block mb-1.5">Address *</Label>
                       <Input
                         id="address"
                         placeholder="123 Main Street"
                         value={formData.address}
                         onChange={(e) => setFormData(prev => ({ ...prev, address: e.target.value }))}
                         required
-                        className="mt-1.5 h-11 text-base"
+                        className="h-10 sm:h-11 text-sm sm:text-base w-full"
                       />
                     </div>
-                    <div>
-                      <Label htmlFor="aptNo" className="text-sm font-medium text-gray-700">Apt/Suite (Optional)</Label>
+                    <div className="w-full">
+                      <Label htmlFor="aptNo" className="text-xs sm:text-sm font-medium text-gray-700 block mb-1.5">Apt/Suite (Optional)</Label>
                       <Input
                         id="aptNo"
                         placeholder="#"
                         value={formData.aptNo}
                         onChange={(e) => setFormData(prev => ({ ...prev, aptNo: e.target.value }))}
-                        className="mt-1.5 h-11 text-base"
+                        className="h-10 sm:h-11 text-sm sm:text-base w-full"
                       />
                     </div>
                   </div>
