@@ -95,7 +95,7 @@ export default function HeroSection() {
                 {icon:'✓', title:'Background Checked', desc:'All cleaners thoroughly vetted'},
                 {icon:'✓', title:'Professional Experience', desc:'Trained and experienced staff'},
                 {icon:'✓', title:'Quality Supplies', desc:'We bring high quality products'},
-                {icon:'✓', title:'Satisfaction Guaranteed', desc:'100% happiness or we make it right'}
+                {icon:'✓', title:'Proven Excellence', desc:'Our Clients Consistently Rate Us Highly'}
               ].map((item, i) => (
                 <div key={i} style={{display:'flex',alignItems:'start',gap:'10px'}}>
                   <div style={{width:'20px',height:'20px',borderRadius:'50%',background:'var(--primary)',color:'white',display:'grid',placeItems:'center',fontSize:'12px',fontWeight:'bold',flexShrink:0}}>

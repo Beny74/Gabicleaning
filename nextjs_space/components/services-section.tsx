@@ -6,12 +6,12 @@ export default function ServicesSection() {
     {
       icon: "🏠",
       title: "Regular Home Cleaning",
-      description: "Weekly, biweekly or monthly maintenance cleans to keep your home fresh and tidy."
+      description: "Weekly, biweekly or monthly maintenance cleaning to keep your home fresh and tidy."
     },
     {
       icon: "🧼",
       title: "Deep Cleaning",
-      description: "Thorough cleaning for kitchens, bathrooms, and hidden corners — perfect for spring cleaning."
+      description: "Thorough cleaning for kitchens, bathrooms and living spaces"
     },
     {
       icon: "🚚",
