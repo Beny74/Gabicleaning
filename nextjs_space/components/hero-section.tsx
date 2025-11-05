@@ -94,7 +94,7 @@ export default function HeroSection() {
               {[
                 {icon:'✓', title:'Background Checked', desc:'All cleaners thoroughly vetted'},
                 {icon:'✓', title:'Professional Experience', desc:'Trained and experienced staff'},
-                {icon:'✓', title:'Quality Supplies', desc:'We bring eco-friendly products'},
+                {icon:'✓', title:'Quality Supplies', desc:'We bring high quality products'},
                 {icon:'✓', title:'Satisfaction Guaranteed', desc:'100% happiness or we make it right'}
               ].map((item, i) => (
                 <div key={i} style={{display:'flex',alignItems:'start',gap:'10px'}}>
