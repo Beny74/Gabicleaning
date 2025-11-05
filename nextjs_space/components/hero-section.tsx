@@ -52,7 +52,7 @@ export default function HeroSection() {
                 <span style={{fontSize:'16px'}}>✓</span>
                 <div>
                   <strong style={{color:'var(--text-dark)',fontSize:'13px'}}>Flexible Scheduling</strong>
-                  <div style={{fontSize:'11px',color:'var(--text-muted)'}}>7 days a week</div>
+                  <div style={{fontSize:'11px',color:'var(--text-muted)'}}>Choose the best day and time for you</div>
                 </div>
               </div>
             </div>
