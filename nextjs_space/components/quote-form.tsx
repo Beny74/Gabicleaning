@@ -14,6 +14,7 @@ export default function QuoteForm() {
     notes: ''
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [photos, setPhotos] = useState<File[]>([])
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -21,6 +22,17 @@ export default function QuoteForm() {
       ...prev,
       [name]: value
     }))
+  }
+
+  const handlePhotoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      const newFiles = Array.from(e.target.files)
+      setPhotos(prev => [...prev, ...newFiles])
+    }
+  }
+
+  const removePhoto = (index: number) => {
+    setPhotos(prev => prev.filter((_, i) => i !== index))
   }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -54,6 +66,7 @@ export default function QuoteForm() {
           date: '',
           notes: ''
         })
+        setPhotos([])
         
         // Show thank you overlay
         const thankYouOverlay = document.getElementById('ty')
@@ -188,6 +201,72 @@ export default function QuoteForm() {
               value={formData?.notes ?? ''}
               onChange={handleInputChange}
             />
+          </div>
+
+          <div className="full" style={{marginTop:'12px'}}>
+            <label htmlFor="photos" style={{display:'flex',alignItems:'center',gap:'8px'}}>
+              📷 Upload Photos (Optional)
+            </label>
+            <input
+              id="photos"
+              name="photos"
+              type="file"
+              accept="image/*"
+              multiple
+              onChange={handlePhotoChange}
+              style={{
+                marginTop:'8px',
+                padding:'10px',
+                border:'1px solid var(--gray-200)',
+                borderRadius:'8px',
+                fontSize:'14px',
+                width:'100%',
+                cursor:'pointer'
+              }}
+            />
+            {photos.length > 0 && (
+              <div style={{marginTop:'10px',display:'flex',flexWrap:'wrap',gap:'8px'}}>
+                {photos.map((photo, index) => (
+                  <div 
+                    key={index} 
+                    style={{
+                      position:'relative',
+                      padding:'6px 12px',
+                      background:'var(--gray-50)',
+                      border:'1px solid var(--gray-200)',
+                      borderRadius:'6px',
+                      fontSize:'13px',
+                      display:'flex',
+                      alignItems:'center',
+                      gap:'8px'
+                    }}
+                  >
+                    <span style={{maxWidth:'150px',overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>
+                      {photo.name}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => removePhoto(index)}
+                      style={{
+                        background:'transparent',
+                        border:'none',
+                        color:'var(--text-muted)',
+                        cursor:'pointer',
+                        fontSize:'16px',
+                        padding:'0',
+                        lineHeight:'1'
+                      }}
+                      aria-label={`Remove ${photo.name}`}
+                    >
+                      ×
+                    </button>
+                  </div>
+                ))}
+              </div>
+            )}
+            <p style={{fontSize:'12px',color:'var(--text-muted)',marginTop:'6px',marginBottom:'0'}}>
+              Help us provide a more accurate quote by uploading photos of the areas to be cleaned.
+            </p>
           </div>
 
           <div style={{marginTop:'10px'}} className="full">

@@ -166,7 +166,7 @@ export default function OurServicesSection() {
       ]
     },
     'office-airbnb': {
-      title: 'Office Turnover',
+      title: 'Office Cleaning',
       description: 'Quick and efficient turnover cleaning for short-term rentals and office spaces. Flexible scheduling to match your needs.',
       areas: [
         {

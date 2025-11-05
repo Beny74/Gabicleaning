@@ -10,7 +10,7 @@ export default function PricingSection() {
       description: "4–5 hours — $220–$300"
     },
     {
-      title: "Move-In / Move-Out",
+      title: "Move-Out / Move-In Cleaning",
       description: "5–6 hours — $250–$400"
     },
     {

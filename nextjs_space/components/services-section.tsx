@@ -15,12 +15,12 @@ export default function ServicesSection() {
     },
     {
       icon: "🚚",
-      title: "Move-In / Move-Out",
+      title: "Move-Out / Move-In Cleaning",
       description: "Reliable move cleaning to ensure deposit returns or a spotless new home."
     },
     {
       icon: "🏢",
-      title: "Office Turnover",
+      title: "Office Cleaning",
       description: "Flexible scheduling for office spaces."
     }
   ]
