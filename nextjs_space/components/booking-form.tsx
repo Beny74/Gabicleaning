@@ -10,20 +10,20 @@ import { Textarea } from './ui/textarea'
 import { Checkbox } from './ui/checkbox'
 import { Calendar } from './ui/calendar'
 import { Popover, PopoverContent, PopoverTrigger } from './ui/popover'
-import { CalendarIcon, Home, Building2 } from 'lucide-react'
+import { CalendarIcon, Home, Building2, Fan, Dog, Zap, Flame, Refrigerator, Square, WashingMachine, Archive } from 'lucide-react'
 import { format } from 'date-fns'
 import { toast } from 'react-hot-toast'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs'
 
 const EXTRAS = [
-  { id: 'ceiling-fan', label: 'Ceiling Fan', icon: '🌀', color: '#60A5FA' },
-  { id: 'pet-fee', label: 'Pet Fee', icon: '🐾', color: '#A78BFA' },
-  { id: 'same-day', label: 'Same Day', icon: '⚡', color: '#FBBF24' },
-  { id: 'oven-cleaning', label: 'Oven Cleaning', icon: '🔥', color: '#F97316' },
-  { id: 'fridge-cleaning', label: 'Fridge Cleaning', icon: '❄️', color: '#38BDF8' },
-  { id: 'window-cleaning', label: 'Window Cleaning', icon: '🪟', color: '#34D399' },
-  { id: 'laundry', label: 'Laundry', icon: '🧺', color: '#F472B6' },
-  { id: 'cabinet-organization', label: 'Cabinet Organization', icon: '🗄️', color: '#A78BFA' }
+  { id: 'ceiling-fan', label: 'Ceiling Fan', Icon: Fan, bgColor: 'bg-blue-100', iconColor: 'text-blue-500' },
+  { id: 'pet-fee', label: 'Pet Fee', Icon: Dog, bgColor: 'bg-purple-100', iconColor: 'text-purple-500' },
+  { id: 'same-day', label: 'Same Day', Icon: Zap, bgColor: 'bg-yellow-100', iconColor: 'text-yellow-500' },
+  { id: 'oven-cleaning', label: 'Oven Cleaning', Icon: Flame, bgColor: 'bg-orange-100', iconColor: 'text-orange-500' },
+  { id: 'fridge-cleaning', label: 'Fridge Cleaning', Icon: Refrigerator, bgColor: 'bg-cyan-100', iconColor: 'text-cyan-500' },
+  { id: 'window-cleaning', label: 'Window Cleaning', Icon: Square, bgColor: 'bg-green-100', iconColor: 'text-green-500' },
+  { id: 'laundry', label: 'Laundry', Icon: WashingMachine, bgColor: 'bg-pink-100', iconColor: 'text-pink-500' },
+  { id: 'cabinet-organization', label: 'Cabinet Organization', Icon: Archive, bgColor: 'bg-purple-100', iconColor: 'text-purple-500' }
 ]
 
 export default function BookingForm() {
@@ -256,27 +256,34 @@ export default function BookingForm() {
               {/* Extras */}
               <div className="card" style={{ padding: '24px', backgroundColor: 'white', borderRadius: '12px', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
                 <h3 style={{ fontSize: '1.25rem', marginBottom: '20px', color: '#111827', fontWeight: '600' }}>Select Extras</h3>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))', gap: '12px' }}>
-                  {EXTRAS.map(extra => (
-                    <button
-                      key={extra.id}
-                      type="button"
-                      onClick={() => handleExtrasToggle(extra.id)}
-                      className={`transition-all duration-200 rounded-lg border-2 ${formData.extras.includes(extra.id) ? 'border-[#7C3AED] bg-purple-50' : 'border-gray-200 bg-white hover:border-gray-300 hover:shadow-sm'}`}
-                      style={{ 
-                        padding: '16px',
-                        textAlign: 'center',
-                        cursor: 'pointer'
-                      }}
-                    >
-                      <div style={{ 
-                        fontSize: '2rem', 
-                        marginBottom: '8px',
-                        filter: formData.extras.includes(extra.id) ? 'none' : 'grayscale(50%)'
-                      }}>{extra.icon}</div>
-                      <div style={{ fontSize: '0.875rem', fontWeight: '500', color: '#374151' }}>{extra.label}</div>
-                    </button>
-                  ))}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {EXTRAS.map(extra => {
+                    const IconComponent = extra.Icon
+                    return (
+                      <button
+                        key={extra.id}
+                        type="button"
+                        onClick={() => handleExtrasToggle(extra.id)}
+                        className={`flex items-center gap-3 p-4 rounded-xl border-2 transition-all duration-200 ${
+                          formData.extras.includes(extra.id) 
+                            ? 'border-[#7C3AED] bg-purple-50' 
+                            : 'border-gray-200 bg-white hover:border-gray-300 hover:shadow-sm'
+                        }`}
+                      >
+                        <div className={`w-10 h-10 rounded-lg ${extra.bgColor} flex items-center justify-center flex-shrink-0`}>
+                          <IconComponent className={`w-5 h-5 ${extra.iconColor}`} />
+                        </div>
+                        <span className="flex-1 text-left text-sm font-medium text-gray-800">{extra.label}</span>
+                        <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center flex-shrink-0 ${
+                          formData.extras.includes(extra.id) ? 'border-[#7C3AED] bg-[#7C3AED]' : 'border-gray-300'
+                        }`}>
+                          {formData.extras.includes(extra.id) && (
+                            <div className="w-2 h-2 rounded-full bg-white"></div>
+                          )}
+                        </div>
+                      </button>
+                    )
+                  })}
                 </div>
               </div>
 
@@ -487,27 +494,34 @@ export default function BookingForm() {
               {/* Extras */}
               <div className="card" style={{ padding: '24px', backgroundColor: 'white', borderRadius: '12px', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
                 <h3 style={{ fontSize: '1.25rem', marginBottom: '20px', color: '#111827', fontWeight: '600' }}>Select Extras</h3>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))', gap: '12px' }}>
-                  {EXTRAS.map(extra => (
-                    <button
-                      key={extra.id}
-                      type="button"
-                      onClick={() => handleExtrasToggle(extra.id)}
-                      className={`transition-all duration-200 rounded-lg border-2 ${formData.extras.includes(extra.id) ? 'border-[#7C3AED] bg-purple-50' : 'border-gray-200 bg-white hover:border-gray-300 hover:shadow-sm'}`}
-                      style={{ 
-                        padding: '16px',
-                        textAlign: 'center',
-                        cursor: 'pointer'
-                      }}
-                    >
-                      <div style={{ 
-                        fontSize: '2rem', 
-                        marginBottom: '8px',
-                        filter: formData.extras.includes(extra.id) ? 'none' : 'grayscale(50%)'
-                      }}>{extra.icon}</div>
-                      <div style={{ fontSize: '0.875rem', fontWeight: '500', color: '#374151' }}>{extra.label}</div>
-                    </button>
-                  ))}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {EXTRAS.map(extra => {
+                    const IconComponent = extra.Icon
+                    return (
+                      <button
+                        key={extra.id}
+                        type="button"
+                        onClick={() => handleExtrasToggle(extra.id)}
+                        className={`flex items-center gap-3 p-4 rounded-xl border-2 transition-all duration-200 ${
+                          formData.extras.includes(extra.id) 
+                            ? 'border-[#7C3AED] bg-purple-50' 
+                            : 'border-gray-200 bg-white hover:border-gray-300 hover:shadow-sm'
+                        }`}
+                      >
+                        <div className={`w-10 h-10 rounded-lg ${extra.bgColor} flex items-center justify-center flex-shrink-0`}>
+                          <IconComponent className={`w-5 h-5 ${extra.iconColor}`} />
+                        </div>
+                        <span className="flex-1 text-left text-sm font-medium text-gray-800">{extra.label}</span>
+                        <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center flex-shrink-0 ${
+                          formData.extras.includes(extra.id) ? 'border-[#7C3AED] bg-[#7C3AED]' : 'border-gray-300'
+                        }`}>
+                          {formData.extras.includes(extra.id) && (
+                            <div className="w-2 h-2 rounded-full bg-white"></div>
+                          )}
+                        </div>
+                      </button>
+                    )
+                  })}
                 </div>
               </div>
 
