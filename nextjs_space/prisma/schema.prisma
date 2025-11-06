@@ -24,3 +24,32 @@ model QuoteRequest {
 
   @@map("quote_requests")
 }
+
+model Booking {
+  id              String   @id @default(cuid())
+  serviceType     String   // 'home' or 'office'
+  zipCode         String
+  service         String
+  frequency       String
+  bedrooms        String?
+  bathrooms       String?
+  sqft            String?
+  partialCleaning Boolean  @default(false)
+  extras          String[] // Array of extra service IDs
+  date            String?
+  firstName       String
+  lastName        String
+  email           String
+  secondaryEmail  String?
+  phone           String
+  secondaryPhone  String?
+  textReminders   Boolean  @default(true)
+  address         String?
+  aptNo           String?
+  specialNotes    String?
+  total           String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@map("bookings")
+}
